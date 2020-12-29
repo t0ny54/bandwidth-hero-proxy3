@@ -19,6 +19,7 @@
     "gif2webp-bin": "^2.0.0",
     "is-animated": "^1.1.1",
     "request": "^2.88.2",
+
     "sharp": "^0.28.2",
     "gif2webp-bin": "^2.0.0",
     "cache-manager": "^2.6.0",
@@ -27,6 +28,5 @@
   },
   "engines": {
     "node": "16.x"
-
   }
 }
