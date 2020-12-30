@@ -41,7 +41,6 @@ function compress(req, res, input) {
                     console.error(readErr);
                     if (readErr ||  res.headersSent) return redirect(req, res)
 
-
                     setResponseHeaders(fs.statSync(`${path}.avif`), 'avif')
                     
                     //Write to stream
