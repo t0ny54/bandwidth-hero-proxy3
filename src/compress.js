@@ -40,7 +40,6 @@ function compress(req, res, input) {
                 fs.readFile(`${path}.avif`, (readErr, data) => {
                     console.error(readErr);
                     if (readErr ||  res.headersSent) return redirect(req, res)
-
                     setResponseHeaders(fs.statSync(`${path}.avif`), 'avif')
                     
                     //Write to stream
@@ -53,6 +52,7 @@ function compress(req, res, input) {
                     res.end()
                 })
         })
+
     })
     
   }else{
