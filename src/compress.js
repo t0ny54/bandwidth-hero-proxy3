@@ -108,6 +108,7 @@ function compress(req, res, input) {
         res.setHeader('x-original-size', req.params.originSize)
         res.setHeader('x-bytes-saved', req.params.originSize - obj.info.size)
         res.status(200)
+    }
 }
 
 module.exports = compress
