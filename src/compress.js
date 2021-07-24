@@ -58,6 +58,7 @@ function compress(req, res, input) {
   }else{
 
     const image = sharp(input);
+    const format = req.params.avif ? 'avif' : 'jpeg'
  
     image
         .metadata(function(err, metadata){
