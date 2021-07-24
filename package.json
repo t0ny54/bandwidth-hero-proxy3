@@ -13,18 +13,17 @@
     "basic-auth": "^2.0.1",
     "express": "4.17.1",
     "lodash": "^4.17.21",
-    "@ffmpeg-installer/ffmpeg": "^1.0.20",
-    "@ffprobe-installer/ffprobe": "^1.0.12",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^1.1.0",
     "fluent-ffmpeg": "^2.1.2",
-    "gif2webp-bin": "^2.0.0",
-    "is-animated": "^1.1.1",
+    "gif2webp-bin": "^3.0.2",
+    "is-animated": "^2.0.1",
     "request": "^2.88.2",
 
-    "sharp": "^0.28.2",
-    "gif2webp-bin": "^2.0.0",
-    "cache-manager": "^2.6.0",
+    "sharp": "^0.28.3",
+    "cache-manager": "^3.4.4",
     "cache-manager-fs-binary": "^1.0.4",
-    "spdy": "^3.4.7"
+    "spdy": "^4.0.2"
   },
   "engines": {
     "node": "16.x"
