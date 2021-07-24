@@ -102,11 +102,11 @@ function compress(req, res, input) {
     }
     function setResponseHeaders (info, imgFormat){
         res.setHeader('content-type', `image/${imgFormat}`)
-        res.setHeader('content-length', obj.info.size)
+        res.setHeader('content-length', info.size)
         let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
         res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"' )
         res.setHeader('x-original-size', req.params.originSize)
-        res.setHeader('x-bytes-saved', req.params.originSize - obj.info.size)
+        res.setHeader('x-bytes-saved', req.params.originSize - info.size)
         res.status(200)
     }
 }
