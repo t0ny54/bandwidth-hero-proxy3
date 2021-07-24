@@ -13,7 +13,7 @@ function shouldCompress(req, buffer) {
   if (avif && originSize < MIN_COMPRESS_LENGTH) return false
   if (
     !avif &&
-    (originType.endsWith('png') || originType.endsWith('gif') || originType.endsWith('jpg') || originType.endsWith('jpeg')) &&
+    (originType.endsWith('png') || originType.endsWith('gif')) &&
     originSize < MIN_TRANSPARENT_COMPRESS_LENGTH
   ) {
     return false
