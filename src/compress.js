@@ -23,7 +23,7 @@ function compress(req, res, input) {
   const originType = req.params.originType
   const key = new URL(req.params.url) || ''
   
-  if(!process.env.DISABLE_ANIMATED && !req.params.grayscale && format === 'gif' && originType.endsWith('gif') && isAnimated(input)){
+  if(originType.endsWith('gif') && isAnimated(input)){
     let {hostname, pathname} = new URL(req.params.url)
     
     let path = `${os.tmpdir()}/${hostname + encodeURIComponent(pathname)}`;
