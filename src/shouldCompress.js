@@ -6,7 +6,7 @@ const MIN_TRANSPARENT_COMPRESS_LENGTH = MIN_COMPRESS_LENGTH * 50 //~100KB
 const APNG_THRESH_LENGTH = MIN_COMPRESS_LENGTH * 100 //~200KB
 
 function shouldCompress(req, buffer) {
-  const { originType, originSize, avif } = req.params
+  const { originType, originSize, avif, webp } = req.params
 
   if (!originType.startsWith('image')) return false
   if (originSize === 0) return false
