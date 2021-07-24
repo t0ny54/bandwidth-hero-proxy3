@@ -40,7 +40,7 @@ function compress(req, res, input) {
                 fs.readFile(`${path}.webp`, (readErr, data) => {
                     console.error(readErr);
                     if (readErr ||  res.headersSent) return redirect(req, res)
-                    res.setHeader(fs.statSync(`${path}.webp`), 'webp')
+                    setResponseHeaders(fs.statSync(`${path}.webp`), 'webp')
                     
                     //Write to stream
                     res.write(data)
@@ -93,19 +93,21 @@ function compress(req, res, input) {
 		}, (err, obj) => {
                 if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
 
-                res.setHeader('content-type', `image/${format}`)
-		res.setHeader('content-length', obj.info.size)
-		let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
-		res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"' )
-		res.setHeader('x-original-size', req.params.originSize)
-		res.setHeader('x-bytes-saved', req.params.originSize - obj.info.size)
+                setResponseHeaders(info, format)
 		res.status(200)
                 res.write(obj.binary.output)
                 res.end()
 			})
         })
     }
-    
+    function setResponseHeaders (info, imgFormat){
+        res.setHeader('content-type', `image/${imgFormat}`)
+        res.setHeader('content-length', obj.info.size)
+        let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
+        res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"' )
+        res.setHeader('x-original-size', req.params.originSize)
+        res.setHeader('x-bytes-saved', req.params.originSize - obj.info.size)
+        res.status(200)
 }
 
 module.exports = compress
