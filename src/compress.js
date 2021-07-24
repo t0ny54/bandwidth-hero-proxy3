@@ -21,7 +21,7 @@ const cache = cacheMgr.caching({
 function compress(req, res, input) {
   const format = req.params.webp ? 'webp' : 'jpeg'
   const originType = req.params.originType
-  const key = req.params.url || ''
+  const key = new URL(req.params.url) || ''
   
   if(!process.env.DISABLE_ANIMATED && !req.params.grayscale && format === 'webp' && originType.endsWith('gif') && isAnimated(input)){
     let {hostname, pathname} = new URL(req.params.url)
@@ -31,10 +31,10 @@ function compress(req, res, input) {
         console.error(err)
         if (err) return redirect(req, res)
         //defer to gif2webp *higher latency*
-        execFile(gif2webp, ['-lossy', '-m', 2, '-q', req.params.quality , '-mt', 
+        execFile(gif2webp, '-mixed', '-m', 6, '-q', req.params.quality , '-mt', 
             `${path}.gif`,
             '-o', 
-            `${path}.webp`], (convErr) => {
+            `${path}.webp`, (convErr) => {
                 if(convErr) console.error(convErr)
                 console.log('GIF Image converted!')
                 fs.readFile(`${path}.webp`, (readErr, data) => {
