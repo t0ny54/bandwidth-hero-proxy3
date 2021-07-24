@@ -40,7 +40,7 @@ function compress(req, res, input) {
                 fs.readFile(`${path}.webp`, (readErr, data) => {
                     console.error(readErr);
                     if (readErr ||  res.headersSent) return redirect(req, res)
-                    setResponseHeaders(fs.statSync(`${path}.webp`), 'webp')
+                    res.setHeader(fs.statSync(`${path}.webp`), 'webp')
                     
                     //Write to stream
                     res.write(data)
