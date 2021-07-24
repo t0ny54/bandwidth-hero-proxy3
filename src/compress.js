@@ -2,7 +2,7 @@ const sharp = require('sharp')
 const redirect = require('./redirect')
 const isAnimated = require('is-animated')
 const {execFile} = require('child_process')
-const gif2avif = require('gif2avif-bin')
+const gif2webp = require('gif2webp-bin')
 const fs = require('fs')
 const os = require('os')
 const {URL} = require('url')
@@ -23,7 +23,7 @@ function compress(req, res, input) {
   const originType = req.params.originType
   const key = req.params.url || ''
   
-  if(!process.env.DISABLE_ANIMATED && !req.params.grayscale && format === 'avif' && originType.endsWith('gif') && isAnimated(input)){
+  if(!process.env.DISABLE_ANIMATED && !req.params.grayscale && format === 'webp' && originType.endsWith('gif') && isAnimated(input)){
     let {hostname, pathname} = new URL(req.params.url)
     
     let path = `${os.tmpdir()}/${hostname + encodeURIComponent(pathname)}`;
@@ -31,23 +31,23 @@ function compress(req, res, input) {
         console.error(err)
         if (err) return redirect(req, res)
         //defer to gif2avif *higher latency*
-        execFile(gif2avif, ['-lossy', '-m', 2, '-q', req.params.quality , '-mt', 
+        execFile(gif2webp, ['-lossy', '-m', 2, '-q', req.params.quality , '-mt', 
             `${path}.gif`,
             '-o', 
-            `${path}.avif`], (convErr) => {
+            `${path}.webp`], (convErr) => {
                 if(convErr) console.error(convErr)
                 console.log('GIF Image converted!')
-                fs.readFile(`${path}.avif`, (readErr, data) => {
+                fs.readFile(`${path}.webp`, (readErr, data) => {
                     console.error(readErr);
                     if (readErr ||  res.headersSent) return redirect(req, res)
-                    setResponseHeaders(fs.statSync(`${path}.avif`), 'avif')
+                    setResponseHeaders(fs.statSync(`${path}.webp`), 'webp')
                     
                     //Write to stream
                     res.write(data)
                     
                     //initiate cleanup procedures
                     fs.unlink(`${path}.gif`, function(){})
-                    fs.unlink(`${path}.avif`, function(){})
+                    fs.unlink(`${path}.webp`, function(){})
                     
                     res.end()
                 })
