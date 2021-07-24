@@ -16,4 +16,4 @@ const PORT = process.env.PORT || 8080
 app.enable('trust proxy')
 app.get('/', authenticate, params, proxy)
 app.get('/favicon.ico', (req, res) => res.status(204).end())
-spdy.createServer(ssl, app).listen(PORT, () => console.log(`Listening on ${PORT}`))
+app.listen(PORT, () => console.log(`Listening on ${PORT}`))
