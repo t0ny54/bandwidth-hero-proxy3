@@ -12,7 +12,7 @@ const cache = cacheMgr.caching({
     store: cacheStore,
     options: {
         ttl: 604800, //7d
-        maxsize: 104857600, //100mb
+        maxsize: 100000, //100kb
         path: './cache',
         preventfill: true
     }
