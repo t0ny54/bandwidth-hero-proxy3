@@ -31,7 +31,7 @@ function compress(req, res, input) {
         console.error(err)
         if (err) return redirect(req, res)
         //defer to gif2webp *higher latency*
-        execFile(gif2webp, '-mixed', '-m', 6, '-q', req.params.quality , '-mt', 
+        execFile(gif2webp, '-lossy','-mixed', '-m', 6, '-q', req.params.quality , '-mt', 
             `${path}.gif`,
             '-o', 
             `${path}.webp`, (convErr) => {
