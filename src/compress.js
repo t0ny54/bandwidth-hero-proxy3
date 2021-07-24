@@ -101,6 +101,7 @@ function compress(req, res, input) {
 				res.setHeader('x-bytes-saved', req.params.originSize - info.size)
 				res.status(200)
                 res.write(obj.binary.output)
+				res.write(output)
                 res.end()
 			})
         })
