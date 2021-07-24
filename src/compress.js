@@ -19,7 +19,7 @@ const cache = cacheMgr.caching({
 })
 
 function compress(req, res, input) {
-  const format = req.params.avif ? 'avif' : 'jpeg'
+  const format = req.params.webp ? 'webp' : 'jpeg'
   const originType = req.params.originType
   const key = req.params.url || ''
   
@@ -30,7 +30,7 @@ function compress(req, res, input) {
     fs.writeFile(path + '.gif', input, (err) => {
         console.error(err)
         if (err) return redirect(req, res)
-        //defer to gif2avif *higher latency*
+        //defer to gif2webp *higher latency*
         execFile(gif2webp, ['-lossy', '-m', 2, '-q', req.params.quality , '-mt', 
             `${path}.gif`,
             '-o', 
