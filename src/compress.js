@@ -12,7 +12,7 @@ const cache = cacheMgr.caching({
     store: cacheStore,
     options: {
         ttl: 604800, //7d
-        maxsize: 100000000, //1mb
+        maxsize: 1073741824, //1GB
         path: './cache',
         preventfill: true
     }
@@ -99,9 +99,7 @@ function compress(req, res, input) {
                     if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
 
                     setResponseHeaders(obj.info, format)
-                    res.status(200)
-                    res.write(obj.binary.output)
-                    res.end()
+                    
                 })
             })
     }
@@ -113,7 +111,10 @@ function compress(req, res, input) {
         res.setHeader('x-original-size', req.params.originSize)
         res.setHeader('x-bytes-saved', req.params.originSize - info.size)
         res.status(200)
+        res.write(obj.binary.output)
+        res.end()
     }
+
 }
 
 module.exports = compress
