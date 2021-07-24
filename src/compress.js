@@ -19,7 +19,7 @@ const cache = cacheMgr.caching({
 })
 
 function compress(req, res, input) {
-  const format = req.params.webp ? 'webp' : 'jpeg'
+  const format = 'webp'
   const originType = req.params.originType
   const key = new URL(req.params.url) || ''
   
@@ -58,7 +58,6 @@ function compress(req, res, input) {
   }else{
 
     const image = sharp(input);
-    const format = req.params.webp ? 'webp' : 'avif'
  
     image
         .metadata(function(err, metadata){
