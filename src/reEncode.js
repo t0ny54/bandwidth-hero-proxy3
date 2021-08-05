@@ -1,11 +1,13 @@
 const redirect = require('./redirect')
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path
-const ffprobePath = require('@ffprobe-installer/ffprobe').path;
-console.log(ffprobe.path, ffprobe.version);
+const ffprobePath = require('@ffprobe-installer/ffprobe').path
 const ffmpeg = require("fluent-ffmpeg")
 const fs = require('fs')
 const os = require('os')
 const {URL} = require('url')
+
+const ffprobe = require('@ffprobe-installer/ffprobe')
+console.log(ffprobe.path, ffprobe.version);
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
