@@ -1,6 +1,7 @@
 const redirect = require('./redirect')
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path
 const ffprobePath = require('@ffprobe-installer/ffprobe').path;
+console.log(ffprobe.path, ffprobe.version);
 const ffmpeg = require("fluent-ffmpeg")
 const fs = require('fs')
 const os = require('os')
@@ -12,7 +13,7 @@ ffmpeg.setFfprobePath(ffprobePath);
 const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 10
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
 const MEDIA_TIMEOUT = parseInt(process.env.MEDIA_TIMEOUT) || 7200
-const VIDEO_HEIGHT_THRESH = parseInt(process.env.VIDEO_HEIGHT_THRESH) || 360
+const VIDEO_HEIGHT_THRESH = parseInt(process.env.VIDEO_HEIGHT_THRESH) || 720
 const VIDEO_WEBM_CPU_USED = parseInt(process.env.VIDEO_WEBM_CPU_USED) || 0
 
 function reEncode(req, res, input) {
