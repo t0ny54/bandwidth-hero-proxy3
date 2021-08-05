@@ -7,7 +7,7 @@ const os = require('os')
 const {URL} = require('url')
 
 const ffprobe = require('@ffprobe-installer/ffprobe')
-console.log(ffprobe.path, ffprobe.version);
+console.log(ffprobe.version);
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
