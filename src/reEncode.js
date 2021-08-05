@@ -15,7 +15,7 @@ ffmpeg.setFfprobePath(ffprobePath);
 const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 20
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
 const MEDIA_TIMEOUT = parseInt(process.env.MEDIA_TIMEOUT) || 7200
-const VIDEO_HEIGHT_THRESH = parseInt(process.env.VIDEO_HEIGHT_THRESH) || 720
+const VIDEO_HEIGHT_THRESH = parseInt(process.env.VIDEO_HEIGHT_THRESH) || 1080
 const VIDEO_WEBM_CPU_USED = parseInt(process.env.VIDEO_WEBM_CPU_USED) || 8
 
 function reEncode(req, res, input) {
