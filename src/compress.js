@@ -58,7 +58,6 @@ function compress(req, res, input) {
   }else{
 
     const image = sharp(input);
-    const format = 'avif'
  
     image
         .metadata(function(err, metadata){
@@ -87,7 +86,9 @@ function compress(req, res, input) {
                 quality: compressionQuality,
                 progressive: true,
                 optimizeScans: true,
-		speed: 5
+		reductionEffort: 6,
+		smartSubsample: true
+		    
 		    
             })
             .toBuffer((err, output, info) => {
