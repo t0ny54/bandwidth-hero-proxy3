@@ -90,7 +90,7 @@ function reEncode(req, res, input) {
                 )
                 //.format(format.format_name.split(',')[0])
                 .format('webm')
-                .outputOptions(["-deadline realtime",`-cpu-used ${VIDEO_WEBM_CPU_USED}`, "-row-mt 1", "-threads 8"])
+                .outputOptions(["-deadline realtime",`-cpu-used ${VIDEO_WEBM_CPU_USED}`, "-row-mt 1", "-threads 8", "-tile-columns 5"])
                 //.outputOptions("-movflags +frag_keyframe")
                 .on('error', function(err) {
                     console.error('An error occurred: ' + err.message)
