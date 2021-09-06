@@ -66,7 +66,7 @@ function reEncode(req, res, input) {
             })
                 .audioCodec("opus")
                 .format("webm")
-                .audioBitrate(aBitrateTarget)
+                .audioQuality(0)
                 .on('error', function(err) {
                     console.error('An error occurred: ' + err.message)
                     return redirect(req, res)
@@ -84,7 +84,7 @@ function reEncode(req, res, input) {
                 .videoBitrate(vBitrateTarget)
                 .audioCodec("opus")//audioStreamInfo.codec_name)
                 //.audioQuality(Math.ceil(quality / 20)) //1-4
-                .audioBitrate(aBitrateTarget)
+                .audioQuality(0)
                 .size(
                     '?x' + Math.min(VIDEO_HEIGHT_THRESH, videoStreamInfo ? videoStreamInfo.height : 0)
                 )
