@@ -86,9 +86,9 @@ function reEncode(req, res, input) {
                 .audioCodec("opus")//audioStreamInfo.codec_name)
                 //.audioQuality(Math.ceil(quality / 20)) //1-4
                 .audioQuality(0)
-                .size(
-                    '?x' + Math.min(VIDEO_HEIGHT_THRESH, videoStreamInfo ? videoStreamInfo.height : 0)
-                )
+                //.size(
+                //    '?x' + Math.min(VIDEO_HEIGHT_THRESH, videoStreamInfo ? videoStreamInfo.height : 0)
+                //)
                 //.format(format.format_name.split(',')[0])
                 .format('webm')
                 .outputOptions(["-deadline realtime",`-cpu-used ${VIDEO_WEBM_CPU_USED}`])
