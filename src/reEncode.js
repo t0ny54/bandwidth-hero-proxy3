@@ -82,7 +82,7 @@ function reEncode(req, res, input) {
             })
                 .videoCodec("libvpx-vp9")//videoStreamInfo.codec_name)
                 .videoBitrate(vBitrateTarget)
-                .inputOptions('-crf', '-b:v 0',  )
+                .inputOptions(['-crf', '-b:v 0' ])
                 .audioCodec("opus")//audioStreamInfo.codec_name)
                 //.audioQuality(Math.ceil(quality / 20)) //1-4
                 .audioQuality(0)
