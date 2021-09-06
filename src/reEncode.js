@@ -90,7 +90,7 @@ function reEncode(req, res, input) {
                 //    '?x' + Math.min(VIDEO_HEIGHT_THRESH, videoStreamInfo ? videoStreamInfo.height : 0)
                 //)
                 //.format(format.format_name.split(',')[0])
-                .format('webm')
+                .format('avif')
                 .outputOptions(["-deadline realtime",`-cpu-used ${VIDEO_WEBM_CPU_USED}`])
                 //.outputOptions("-movflags +frag_keyframe")
                 .on('error', function(err) {
