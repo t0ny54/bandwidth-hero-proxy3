@@ -5,7 +5,7 @@ const {execFile} = import('child_process')
 const gif2webp = import('gif2webp-bin')
 const fs = import('fs')
 const os = import('os')
-const {URL} = import('url')
+const {URL} = require('url')
 const cacheMgr = require('cache-manager')
 const cacheStore = require('cache-manager-fs-binary')
 const cache = cacheMgr.caching({
@@ -107,7 +107,7 @@ function compress(req, res, input) {
     function setResponseHeaders (info, imgFormat){
         res.setHeader('content-type', `image/${imgFormat}`)
         res.setHeader('content-length', info.size)
-        let filename = (req.params.url.pathname.split('/').pop() || "image") + '.' + format
+        let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
         res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"' )
         res.setHeader('x-original-size', req.params.originSize)
         res.setHeader('x-bytes-saved', req.params.originSize - info.size)
