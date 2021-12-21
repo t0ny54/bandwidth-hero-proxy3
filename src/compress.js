@@ -6,8 +6,8 @@ const gif2webp = import('gif2webp-bin')
 const fs = import('fs')
 const os = import('os')
 const {URL} = import('url')
-const cacheMgr = import('cache-manager')
-const cacheStore = import('cache-manager-fs-binary')
+const cacheMgr = require('cache-manager')
+const cacheStore = require('cache-manager-fs-binary')
 const cache = cacheMgr.caching({
     store: cacheStore,
     options: {
