@@ -21,7 +21,7 @@ const cache = cacheMgr.caching({
 function compress(req, res, input) {
   const format = 'webp'
   const originType = req.params.originType
-  const key = new URL(req.params.url) || ''
+  const key = req.params.url || ''
   
   if(originType.endsWith('gif') && isAnimated(input)){
     let {hostname, pathname} = new URL(req.params.url)
