@@ -1,5 +1,5 @@
 const sharp = import('sharp')
-const redirect = import('./redirect')
+const redirect = require('./redirect')
 const isAnimated = import('is-animated')
 const {execFile} = import('child_process')
 const gif2webp = import('gif2webp-bin')
