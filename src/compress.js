@@ -3,8 +3,8 @@ const redirect = require('./redirect')
 const isAnimated = import('is-animated')
 const {execFile} = import('child_process')
 const gif2webp = import('gif2webp-bin')
-const fs = require('fs')
-const os = require('os')
+const fs = import('fs')
+const os = import('os')
 const {URL} = import('url')
 const cacheMgr = require('cache-manager')
 const cacheStore = require('cache-manager-fs-binary')
@@ -107,7 +107,7 @@ function compress(req, res, input) {
     function setResponseHeaders (info, imgFormat){
         res.setHeader('content-type', `image/${imgFormat}`)
         res.setHeader('content-length', info.size)
-        let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
+        let filename = (URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
         res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"' )
         res.setHeader('x-original-size', req.params.originSize)
         res.setHeader('x-bytes-saved', req.params.originSize - info.size)
