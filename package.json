@@ -14,14 +14,13 @@
     "express": "4.17.2",
     "lodash": "^4.17.21",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
-    "@ffprobe-installer/ffprobe": "^1.2.0",
+    "@ffprobe-installer/ffprobe": "^1.3.0",
     "fluent-ffmpeg": "^2.1.2",
-    "gif2webp-bin": "^4.0.0",
+    "gif2webp-bin": "^4.0.1",
     "is-animated": "^2.0.1",
     "request": "^2.88.2",
-
-    "sharp": "^0.29.0",
-    "cache-manager": "^3.4.4",
+    "sharp": "^0.29.3",
+    "cache-manager": "^3.6.0",
     "cache-manager-fs-binary": "^1.0.4",
     "spdy": "^4.0.2"
   },
