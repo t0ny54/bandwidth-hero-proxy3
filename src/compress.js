@@ -1,22 +1,22 @@
-import * as sharp from 'sharp'
-import * as redirect from './redirect.js'
-import * as isAnimated from 'is-animated'
-import * as execFile from 'child_process'
+import * as cacheMgr from 'cache-manager';
+import * as cacheStore from 'cache-manager-fs-binary';
+import * as execFile from 'child_process';
+import * as fs from 'fs';
 import * as gif2webp from 'gif2webp-bin';
-import * as fs from 'fs'
-import * as os from 'os'
-import * as URL  from 'url'
-import * as cacheMgr from 'cache-manager'
-import * as cacheStore from 'cache-manager-fs-binary'
-var cache = cacheMgr.caching({
-    store: cacheStore,
-    options: {
-        ttl: 604800, //7d
-        maxsize: 100000000, //1mb
-        path: './cache',
-        preventfill: true
-    }
-})
+import * as isAnimated from 'is-animated';
+import * as os from 'os';
+import * as sharp from 'sharp';
+import * as URL from 'url';
+import * as redirect from './redirect.js';
+//var cache = cacheMgr.caching({
+//    store: cacheStore,
+//    options: {
+//        ttl: 604800, //7d
+//        maxsize: 100000000, //1mb
+//        path: './cache',
+//        preventfill: true
+//    }
+//})
 
 function compress(req, res, input) {
   const format = 'webp'
