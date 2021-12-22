@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict'
-const app = require('express')()
-const authenticate = require('./src/authenticate')
-const params = require('./src/params')
-const proxy = require('./src/proxy')
+import app from'express'
+import authenticate from './src/authenticate'
+import params from './src/params'
+import proxy from './src/proxy'
 
 
 const PORT = process.env.PORT || 8080
