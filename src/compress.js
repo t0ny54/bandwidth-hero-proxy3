@@ -1,4 +1,4 @@
-import sharp = from 'sharp';
+const sharp = require('sharp');
 import redirect = from './redirect';
 import isAnimated = from 'is-animated';
 import {execFile} from 'node:child_process';
