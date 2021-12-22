@@ -12,4 +12,4 @@ function bypass(req, res, buffer) {
   res.end()
 }
 
-module.exports = bypass
+export default bypass

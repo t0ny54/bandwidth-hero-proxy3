@@ -115,4 +115,4 @@ function compress(req, res, input) {
     }
 }
 
-module.exports = compress
+export default compress

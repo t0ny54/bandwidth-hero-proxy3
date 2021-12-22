@@ -10,4 +10,4 @@ function redirect(req, res) {
   res.status(302).end()
 }
 
-module.exports = redirect
+export default redirect
