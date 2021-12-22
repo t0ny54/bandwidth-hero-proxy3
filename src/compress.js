@@ -1,5 +1,5 @@
 import * as sharp from 'sharp'
-import * as redirect from './redirect'
+import * as redirect from './redirect.js'
 import * as isAnimated from 'is-animated'
 import * as execFile from 'child_process'
 import * as gif2webp from 'gif2webp-bin';
