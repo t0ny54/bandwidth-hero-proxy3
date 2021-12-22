@@ -1,9 +1,9 @@
 const sharp = require('sharp');
 const redirect = require('./redirect');
-import isAnimated = from 'is-animated';
+const isAnimated = require('is-animated')
 import {execFile} from 'node:child_process';
 import gif2webp from 'gif2webp-bin';
-import fs = from 'fs';
+const fs = require('fs')';
 import os = from'os';
 import {URL} = from'url';
 import cacheMgr = from'cache-manager';
