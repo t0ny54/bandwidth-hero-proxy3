@@ -27,5 +27,8 @@
   },
   "engines": {
     "node": "17.x"
-  }
+  },
+  {
+    "type": "module"
+}
 }
