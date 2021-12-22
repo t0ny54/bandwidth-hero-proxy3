@@ -8,7 +8,7 @@ import * as os from 'os'
 import * as URL  from 'url'
 import * as cacheMgr from 'cache-manager'
 import * as cacheStore from 'cache-manager-fs-binary'
-const cache = cacheMgr.caching({
+var cache = cacheMgr.caching({
     store: cacheStore,
     options: {
         ttl: 604800, //7d
