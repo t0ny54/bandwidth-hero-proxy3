@@ -1,9 +1,9 @@
-const sharp = require('sharp');
-const redirect = require('./redirect');
-const isAnimated = require('is-animated');
-const {execFile} = require('node:child_process')
+import sharp = from 'sharp';
+import redirect = from './redirect';
+import isAnimated = from 'is-animated';
+import {execFile} from 'node:child_process';
 import gif2webp from 'gif2webp-bin';
-const fs = require('fs')';
+import fs = from 'fs';
 import os = from'os';
 import {URL} = from'url';
 import cacheMgr = from'cache-manager';
@@ -116,3 +116,10 @@ function compress(req, res, input) {
 }
 
 module.exports = compress
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
