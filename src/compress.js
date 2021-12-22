@@ -1,6 +1,6 @@
 const sharp = require('sharp');
 const redirect = require('./redirect');
-const isAnimated = require('is-animated')
+const isAnimated = require('is-animated');
 import {execFile} from 'node:child_process';
 import gif2webp from 'gif2webp-bin';
 const fs = require('fs')';
