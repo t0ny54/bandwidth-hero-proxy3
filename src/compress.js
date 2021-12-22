@@ -1,13 +1,13 @@
-import sharp = from 'sharp';
-import redirect = from './redirect';
-import isAnimated = from 'is-animated';
-import {execFile} from 'node:child_process';
-import gif2webp from 'gif2webp-bin';
-import fs = from 'fs';
-import os = from'os';
-import {URL} = from'url';
-import cacheMgr = from'cache-manager';
-import cacheStore = from'cache-manager-fs-binary';
+const sharp = require('sharp')
+const redirect = require('./redirect')
+const isAnimated = require('is-animated')
+const {execFile} = require('child_process')
+const gif2webp = require('gif2webp-bin')
+const fs = require('fs')
+const os = require('os')
+const {URL} = require('url')
+const cacheMgr = require('cache-manager')
+const cacheStore = require('cache-manager-fs-binary')
 const cache = cacheMgr.caching({
     store: cacheStore,
     options: {
@@ -21,7 +21,7 @@ const cache = cacheMgr.caching({
 function compress(req, res, input) {
   const format = 'webp'
   const originType = req.params.originType
-  const key = req.params.url || ''
+  const key = new URL(req.params.url) || ''
   
   if(originType.endsWith('gif') && isAnimated(input)){
     let {hostname, pathname} = new URL(req.params.url)
@@ -31,7 +31,7 @@ function compress(req, res, input) {
         console.error(err)
         if (err) return redirect(req, res)
         //defer to gif2webp *higher latency*
-        execFile(gif2webp, ['-lossy', '-m', 2, '-q', req.params.quality , '-mt', 
+        execFile(gif2webp, ['-lossy','-mixed', '-m', 2, '-q', req.params.quality , '-mt', 
             `${path}.gif`,
             '-o', 
             `${path}.webp`] , (convErr) => {
@@ -116,10 +116,3 @@ function compress(req, res, input) {
 }
 
 module.exports = compress
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
