@@ -1,4 +1,4 @@
-import redirect from './redirect.js'
+import * as redirect from './redirect.js'
 import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg"
 import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
 import ffmpeg, * as fluentFfmpeg from "fluent-ffmpeg"
