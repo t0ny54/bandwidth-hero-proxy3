@@ -1,11 +1,11 @@
-const request = require('request')
-const pick = require('lodash').pick
-const shouldCompress = require('./shouldCompress')
-const redirect = require('./redirect')
-const compress = require('./compress')
-const reEncode = require('./reEncode')
-const bypass = require('./bypass')
-const copyHeaders = require('./copyHeaders')
+import * as request from 'request'
+import * as pick from 'lodash'
+import * as shouldCompress from './shouldCompress'
+import * as redirect from './redirect'
+import * as compress from './compress'
+import * as reEncode from './reEncode'
+import * as bypass from './bypass'
+import * as copyHeaders from './copyHeaders'
 
 function proxy(req, res) {
     var isMediaStream

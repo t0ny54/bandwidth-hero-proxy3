@@ -1,16 +1,16 @@
-const redirect = require('./redirect')
-const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path
-const ffprobePath = require('@ffprobe-installer/ffprobe').path
-const ffmpeg = require("fluent-ffmpeg")
-const fs = require('fs')
-const os = require('os')
-const {URL} = require('url')
+import redirect from './redirect'
+import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg"
+import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
+import ffmpeg, { setFfmpegPath, setFfprobePath, ffprobe as _ffprobe } from "fluent-ffmpeg"
+import fs from 'fs'
+import os from 'os'
+import { URL } from 'url'
 
-const ffprobe = require('@ffprobe-installer/ffprobe')
-console.log(ffprobe.path, ffprobe.version);
+import { path, version } from '@ffprobe-installer/ffprobe'
+console.log(path, version);
 
-ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
+setFfmpegPath(ffmpegPath);
+setFfprobePath(ffprobePath);
 
 const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 2000
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
@@ -24,7 +24,7 @@ function reEncode(req, res, input) {
     var aBitrateTarget = quality * AUDIO_QUALITY_MULTIPLIER
     var timeoutSeconds = MEDIA_TIMEOUT //2 hours
     
-    ffmpeg.ffprobe(req.params.url, function(err, metadata) {
+    _ffprobe(req.params.url, function(err, metadata) {
         let audioStreamInfo, videoStreamInfo, audioOnly
         //format = metadata.format
         if(err || !metadata){
@@ -128,4 +128,4 @@ function reEncode(req, res, input) {
     })
 }
 
-module.exports = reEncode
+export default reEncode

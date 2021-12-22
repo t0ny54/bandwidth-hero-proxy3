@@ -1,13 +1,13 @@
-const sharp = require('sharp')
-const redirect = require('./redirect')
-const isAnimated = require('is-animated')
-const {execFile} = require('child_process')
-import * as  gif2webp from 'gif2webp-bin';
-const fs = require('fs')
-const os = require('os')
-const {URL} = require('url')
-const cacheMgr = require('cache-manager')
-const cacheStore = require('cache-manager-fs-binary')
+import * as sharp from 'sharp'
+import * as redirect from './redirect'
+import * as isAnimated from 'is-animated'
+import * as execFile from 'child_process'
+import * as gif2webp from 'gif2webp-bin';
+import * as fs from 'fs'
+import * as os from 'os'
+import * as URL  from 'url'
+import * as cacheMgr from 'cache-manager'
+import * as cacheStore from 'cache-manager-fs-binary'
 const cache = cacheMgr.caching({
     store: cacheStore,
     options: {

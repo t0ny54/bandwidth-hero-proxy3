@@ -1,4 +1,4 @@
-const isAnimated = require('is-animated')
+import * as isAnimated from 'is-animated'
 
 
 const MIN_COMPRESS_LENGTH = process.env.MIN_COMPRESS_LENGTH || 2048
