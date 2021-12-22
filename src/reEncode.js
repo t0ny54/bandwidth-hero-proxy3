@@ -1,7 +1,7 @@
 import redirect from './redirect.js'
 import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg"
 import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
-import ffmpeg, { setFfmpegPath, setFfprobePath, ffprobe as _ffprobe } from "fluent-ffmpeg"
+import ffmpeg, * as fluentFfmpeg from "fluent-ffmpeg"
 import fs from 'fs'
 import os from 'os'
 import * as url from 'url'
@@ -9,8 +9,8 @@ import * as url from 'url'
 import { path, version } from '@ffprobe-installer/ffprobe'
 console.log(path, version);
 
-setFfmpegPath(ffmpegPath);
-setFfprobePath(ffprobePath);
+fluentFfmpeg.setFfmpegPath(ffmpegPath);
+fluentFfmpeg.setFfprobePath(ffprobePath);
 
 const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 2000
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
@@ -24,7 +24,7 @@ function reEncode(req, res, input) {
     var aBitrateTarget = quality * AUDIO_QUALITY_MULTIPLIER
     var timeoutSeconds = MEDIA_TIMEOUT //2 hours
     
-    _ffprobe(req.params.url, function(err, metadata) {
+    fluentFfmpeg.ffprobe(req.params.url, function(err, metadata) {
         let audioStreamInfo, videoStreamInfo, audioOnly
         //format = metadata.format
         if(err || !metadata){
