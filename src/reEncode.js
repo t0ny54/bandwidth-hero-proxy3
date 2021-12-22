@@ -1,7 +1,7 @@
 import * as redirect from './redirect.js'
 import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg"
 import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
-import * as ffmpeg, * as fluentFfmpeg from "fluent-ffmpeg"
+import ffmpeg, * as fluentFfmpeg from "fluent-ffmpeg"
 import fs from 'fs'
 import os from 'os'
 import * as url from 'url'
