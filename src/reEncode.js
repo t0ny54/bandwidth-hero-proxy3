@@ -1,6 +1,6 @@
 import * as redirect from './redirect.js'
-import { path as ffmpegPath } from "@ffmpeg-installer/ffmpeg"
-import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
+import * as ffmpeg from "@ffmpeg-installer/ffmpeg"
+import * as ffprobe from '@ffprobe-installer/ffprobe'
 import * as fluentFfmpeg from "fluent-ffmpeg"
 import fs from 'fs'
 import os from 'os'
@@ -9,8 +9,8 @@ import * as url from 'url'
 import { path, version } from '@ffprobe-installer/ffprobe'
 console.log(path, version);
 
-//fluentFfmpeg.setFfmpegPath(ffmpegPath);
-//fluentFfmpeg.setFfprobePath(ffprobePath);
+fluentFfmpeg.setFfmpegPath(ffmpegPath);
+fluentFfmpeg.setFfprobePath(ffprobePath);
 
 const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 2000
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
