@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict'
-import  app from 'express';{ }
+import {default as app } from 'express';{ }
 import  authenticate from './src/authenticate.js'
 import  params from './src/params.js'
 import  proxy from './src/proxy.js'
