@@ -1,4 +1,4 @@
-import * as auth from 'basic-auth'
+import auth from 'basic-auth'
 const LOGIN = process.env.LOGIN
 const PASSWORD = process.env.PASSWORD
 

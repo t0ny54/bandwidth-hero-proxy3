@@ -1,4 +1,4 @@
-import * as isAnimated from 'is-animated'
+import  isAnimated from 'is-animated'
 
 
 const MIN_COMPRESS_LENGTH = process.env.MIN_COMPRESS_LENGTH || 2048

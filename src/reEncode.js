@@ -1,10 +1,10 @@
-import * as redirect from './redirect.js'
-import * as ffmpeg from "@ffmpeg-installer/ffmpeg"
-import * as ffprobe from '@ffprobe-installer/ffprobe'
-import * as fluentFfmpeg from "fluent-ffmpeg"
+import  redirect from './redirect.js'
+import  ffmpeg from "@ffmpeg-installer/ffmpeg"
+import  ffprobe from '@ffprobe-installer/ffprobe'
+import  fluentFfmpeg from "fluent-ffmpeg"
 import fs from 'fs'
 import os from 'os'
-import * as url from 'url'
+import  url from 'url'
 
 import { path, version } from '@ffprobe-installer/ffprobe'
 console.log(path, version);

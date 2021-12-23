@@ -1,4 +1,4 @@
-import * as URL from 'url'
+import  URL from 'url'
 
 function bypass(req, res, buffer) {
   res.setHeader('x-proxy-bypass', 1)

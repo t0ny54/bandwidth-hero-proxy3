@@ -1,11 +1,11 @@
-import * as request from 'request'
-import * as pick from 'lodash'
-import * as shouldCompress from './shouldCompress.js'
-import * as redirect from './redirect.js'
-import * as compress from './compress.js'
-import * as reEncode from './reEncode.js'
-import * as bypass from './bypass.js'
-import * as copyHeaders from './copyHeaders.js'
+import  request from 'request'
+import  pick from 'lodash'
+import  shouldCompress from './shouldCompress.js'
+import  redirect from './redirect.js'
+import  compress from './compress.js'
+import  reEncode from './reEncode.js'
+import  bypass from './bypass.js'
+import  copyHeaders from './copyHeaders.js'
 
 function proxy(req, res) {
     var isMediaStream
