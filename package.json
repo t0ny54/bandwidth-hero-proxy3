@@ -15,7 +15,7 @@
     "basic-auth": "^2.0.1",
     "cache-manager": "3.6.0",
     "cache-manager-fs-binary": "^1.0.4",
-    "express": "5.0.0-alpha.2",
+    "express": "5.0.0-alpha.8",
     "fluent-ffmpeg": "^2.1.2",
     "gif2webp-bin": "^3.0.3",
     "is-animated": "^2.0.1",
