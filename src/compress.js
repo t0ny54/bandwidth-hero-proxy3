@@ -19,7 +19,7 @@ const cache = cacheMgr.caching({
 })
 
 function compress(req, res, input) {
-    const format = 'avif'
+    const format = 'webp'
     const originType = req.params.originType
     const key = new URL(req.params.url) || ''
 
@@ -86,8 +86,9 @@ function compress(req, res, input) {
                             quality: compressionQuality,
                             progressive: true,
                             optimizeScans: true,
-                            reductionEffort: 6,
-                            smartSubsample: true
+                            effort: 4,
+                            smartSubsample: true,
+                            lossless:true
 
 
                         })
