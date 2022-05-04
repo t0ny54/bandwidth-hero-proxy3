@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "1.1.0",
-    "@ffprobe-installer/ffprobe": "1.3.0",
+    "@ffprobe-installer/ffprobe": "1.4.1",
     "basic-auth": "2.0.1",
     "cache-manager": "3.6.1",
     "cache-manager-fs-binary": "1.0.4",
