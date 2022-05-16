@@ -1,16 +1,33 @@
-const sharp = require('sharp')
-const redirect = require('./redirect')
-const isAnimated = require('is-animated')
+//const sharp = require('sharp')
+//const redirect = require('./redirect')
+//const isAnimated = require('is-animated')
 //const { execFile } = require('child_process')
 //const gif2webp = require('gif2webp-bin')
-const fs = require('fs')
-const os = require('os')
-const { URL } = require('url')
-const cacheMgr = require('cache-manager')
-const cacheStore = require('cache-manager-fs-binary')
+//const fs = require('fs')
+//const os = require('os')
+//const { URL } = require('url')
+//const cacheMgr = require('cache-manager')
+//const cacheStore = require('cache-manager-fs-binary')
+//const cache = cacheMgr.caching({
+//    store: cacheStore,
+//    options: {
+//        ttl: 604800, //7d
+//        maxsize: 1073741824, //1GB
+//        path: './cache',
+//        preventfill: true
+//    }
+//})
 import { execFile } from 'node:child_process';
 import gif2webp from 'gif2webp-bin';
-const cache = cacheMgr.caching({
+import sharp  from 'sharp';
+import edirectfrom './redirect';
+import isAnimated from 'is-animated';
+import fs from  'fs';
+import os from 'os';
+import { URL } from 'url';
+import cacheMgr from 'cache-manager';
+import cacheStore from'cache-manager-fs-binary';
+import cache from cacheMgr.caching({
     store: cacheStore,
     options: {
         ttl: 604800, //7d
