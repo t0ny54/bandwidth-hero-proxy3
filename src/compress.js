@@ -98,7 +98,10 @@ function compress(req, res, input) {
                 }, (err, obj) => {
                     if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
 
-                    setResponseHeaders(info, format)
+                    setResponseHeaders(obj.info, format)
+                        res.status(200)
+                        res.write(obj.binary.output)
+                        res.end()
                     
                 })
             })
@@ -110,9 +113,6 @@ function compress(req, res, input) {
         res.setHeader('Content-Disposition', 'inline; filename="' + filename + '"')
         res.setHeader('x-original-size', req.params.originSize)
         res.setHeader('x-bytes-saved', req.params.originSize - info.size)
-        res.status(200)
-        res.write(obj.binary.output)
-        res.end()
     }
 
 }
