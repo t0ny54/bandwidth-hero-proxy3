@@ -14,7 +14,7 @@
     "@ffmpeg-installer/ffmpeg": "1.1.0",
     "@ffprobe-installer/ffprobe": "1.4.1",
     "basic-auth": "2.0.1",
-    "cache-manager": "3.6.1",
+    "cache-manager": "4.0.1",
     "cache-manager-fs-binary": "1.0.4",
     "express": "4.18.1",
     "fluent-ffmpeg": "2.1.2",
