@@ -76,7 +76,7 @@ function compress(req, res, input) {
 
         })
 
-    }else if (originType.endsWith('webp')) {
+    }else if (!originType.endsWith('webp')) {
 
         const image = sharp(input);
 
@@ -127,6 +127,8 @@ function compress(req, res, input) {
                     
                 })
             })
+    } else {
+        res.end()
     }
     function setResponseHeaders(info, imgFormat) {
         res.setHeader('content-type', `image/${imgFormat}`)
