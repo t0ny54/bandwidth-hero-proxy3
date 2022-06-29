@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict'
-//const app = require('express')()
+const app = require('express')()
 const authenticate = require('./src/authenticate')
 const params = require('./src/params')
 const proxy = require('./src/proxy')
-import app from 'express';
+//import app from 'express';
 //import authenticate from '../src/authenticate.js';
 //import params from '../src/param.js';
 //import proxy from '../src/proxy.js';
