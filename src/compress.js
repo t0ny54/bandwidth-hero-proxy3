@@ -127,6 +127,7 @@ function compress(req, res, input) {
                     
                 })
             })
+    }
     function setResponseHeaders(info, imgFormat) {
         res.setHeader('content-type', `image/${imgFormat}`)
         res.setHeader('content-length', info.size)
