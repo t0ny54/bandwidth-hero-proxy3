@@ -128,6 +128,8 @@ function compress(req, res, input) {
                 })
             })
     } else {
+        res.status(200)
+        res.write(obj.binary.output)
         res.end()
     }
     function setResponseHeaders(info, imgFormat) {
