@@ -41,6 +41,8 @@ function compress(req, res, input) {
     const format = 'webp'
     const originType = req.params.originType
     const key = new URL(req.params.url) || ''
+    const stats = sharp.cache();
+    sharp.cache( { memory: 200 } );
 
     if (originType.endsWith('gif') && isAnimated(input)) {
         let { hostname, pathname } = new URL(req.params.url)
