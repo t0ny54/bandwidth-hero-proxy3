@@ -107,9 +107,9 @@ function compress(req, res, input) {
                             quality: compressionQuality,
                             progressive: false,
                             optimizeScans: false,
-                            effort: 6,
-                            smartSubsample: false,
-                            lossless: false
+                            effort: 4,
+                            smartSubsample: true,
+                            lossless: true
 
                         })
                         .toBuffer((err, output, info) => {
