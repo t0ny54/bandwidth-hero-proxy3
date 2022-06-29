@@ -113,7 +113,7 @@ function compress(req, res, input) {
                         .toBuffer((err, output, info) => {
                             callback(err, { binary: { output: output }, info: info })
                         })
-                        setResponseHeaders(obj.info, format)
+                        setResponseHeaders(info, format)
                             res.status(200)
                             res.write(obj.binary.output)
                             res.end()
