@@ -12,7 +12,7 @@ console.log(ffprobe.path, ffprobe.version);
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
-const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 2000
+const VIDEO_QUALITY_MULTIPLIER = parseInt(process.env.VIDEO_QUALITY_MULTIPLIER) || 20
 const AUDIO_QUALITY_MULTIPLIER = parseInt(process.env.AUDIO_QUALITY_MULTIPLIER) || 2
 const MEDIA_TIMEOUT = parseInt(process.env.MEDIA_TIMEOUT) || 7200
 const VIDEO_HEIGHT_THRESH = parseInt(process.env.VIDEO_HEIGHT_THRESH) || 1080
@@ -90,7 +90,7 @@ function reEncode(req, res, input) {
                 //    '?x' + Math.min(VIDEO_HEIGHT_THRESH, videoStreamInfo ? videoStreamInfo.height : 0)
                 //)
                 //.format(format.format_name.split(',')[0])
-                .format('avif')
+                .format('webm')
                 .outputOptions(["-deadline realtime", `-cpu-used ${VIDEO_WEBM_CPU_USED}`])
                 //.outputOptions("-movflags +frag_keyframe")
                 .on('error', function (err) {
