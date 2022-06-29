@@ -102,25 +102,25 @@ function compress(req, res, input) {
                     sharp(input)
                         .grayscale(req.params.grayscale)
                         .toFormat(format, {
-                            quality: 20, //compressionQuality,
+                            quality: compressionQuality,
                             progressive: false,
                             optimizeScans: false,
                             effort: 6,
                             smartSubsample: false,
-                            lossless:false,
-                            nearLossless:true
+                            lossless: false
 
                         })
                         .toBuffer((err, output, info) => {
                             callback(err, { binary: { output: output }, info: info })
                         })
+                        setResponseHeaders(obj.info, format)
+                            res.status(200)
+                            res.write(obj.binary.output)
+                            res.end()
                 }, (err, obj) => {
                     if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
 
-                    setResponseHeaders(obj.info, format)
-                        res.status(200)
-                        res.write(obj.binary.output)
-                        res.end()
+
                     
                 })
             })
