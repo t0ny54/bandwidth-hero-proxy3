@@ -118,7 +118,7 @@ function compress(req, res, input) {
                         
                 }, (err, obj) => {
                     if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
-                 setResponseHeaders(obj.info, format)
+                 setResponseHeaders(info, format)
                             res.status(200)
                             res.write(obj.binary.output)
                             res.end()
