@@ -128,7 +128,7 @@ function compress(req, res, input) {
                 })
             })
     }
-    function setResponseHeaders(obj.info, imgFormat) {
+    function setResponseHeaders(info, imgFormat) {
         res.setHeader('content-type', `image/${imgFormat}`)
         res.setHeader('content-length', info.size)
         let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
