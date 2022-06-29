@@ -118,7 +118,7 @@ function compress(req, res, input) {
                         
                 }, (err, obj) => {
                     if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
-                 setResponseHeaders(info, format)
+                 setResponseHeaders(obj.info, format)
                             res.status(200)
                             res.write(obj.binary.output)
                             res.end()
@@ -128,7 +128,7 @@ function compress(req, res, input) {
                 })
             })
     }
-    function setResponseHeaders(info, imgFormat) {
+    function setResponseHeaders(obj.info, imgFormat) {
         res.setHeader('content-type', `image/${imgFormat}`)
         res.setHeader('content-length', info.size)
         let filename = (new URL(req.params.url).pathname.split('/').pop() || "image") + '.' + format
