@@ -115,12 +115,13 @@ function compress(req, res, input) {
                         .toBuffer((err, output, info) => {
                             callback(err, { binary: { output: output }, info: info })
                         })
-                        setResponseHeaders(info, format)
+                        
+                }, (err, obj) => {
+                    if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
+                 setResponseHeaders(info, format)
                             res.status(200)
                             res.write(obj.binary.output)
                             res.end()
-                }, (err, obj) => {
-                    if (err || !obj || !obj.info || res.headersSent) return redirect(req, res)
 
 
                     
