@@ -76,7 +76,7 @@ function compress(req, res, input) {
 
         })
 
-    } else if (!originType.endsWith('webp') {
+    }if (!originType.endsWith('webp') {
 
         const image = sharp(input);
 
