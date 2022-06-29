@@ -102,13 +102,13 @@ function compress(req, res, input) {
                     sharp(input)
                         .grayscale(req.params.grayscale)
                         .toFormat(format, {
-                            quality: compressionQuality,
+                            quality: 20, //compressionQuality,
                             progressive: false,
                             optimizeScans: false,
                             effort: 6,
                             smartSubsample: false,
-                            lossless:true
-
+                            lossless:false,
+                            nearLossless:true
 
                         })
                         .toBuffer((err, output, info) => {
