@@ -69,6 +69,7 @@ function compress(req, res, input) {
                         fs.unlink(`${path}.gif`, function () { })
                         fs.unlink(`${path}.webp`, function () { })
 
+			res.write(data)
                         res.end()
 						})
 					}
