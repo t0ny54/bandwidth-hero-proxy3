@@ -45,7 +45,7 @@ function compress(req, res, input) {
     sharp.cache( { memory: 200 } );
     const threads = sharp.concurrency(0)
 
-    if (originType.endsWith('gif') && isAnimated(input)) {
+    if originType.endsWith('gif') {
         let { hostname, pathname } = new URL(req.params.url)
 
         let path = `${os.tmpdir()}/${hostname + encodeURIComponent(pathname)}`;
