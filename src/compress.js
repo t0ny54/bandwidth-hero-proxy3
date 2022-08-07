@@ -55,10 +55,10 @@ function compress(req, res, input) {
             //defer to gif2webp *higher latency*
             execFile(gif2webp, ['-mixed', '-m', 6, '-q', 100, '-mt', '-v', `${path}.gif`, '-o', `${path}.webp`],
                     (convErr) => {
-                    if (convErr) console.error(convErr)
+                    if (convErr) console.error(Tutaj + convErr)
                     console.log('GIF Image converted!')
                     fs.readFile(`${path}.webp`, (readErr, data) => {
-                        console.error(readErr);
+                        console.error(hir + readErr);
                         if (readErr || res.headersSent) return redirect(req, res)
                         setResponseHeaders(fs.statSync(`${path}.webp`), 'webp')
 
