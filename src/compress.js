@@ -53,10 +53,8 @@ function compress(req, res, input) {
             console.error(err)
             if (err) return redirect(req, res)
             //defer to gif2webp *higher latency*
-            execFile(gif2webp, ['-mixed', '-m', 6, '-q', 100, '-mt', '-v'],
-                `${path}.gif`,
-                '-o',
-                `${path}.webp`, (convErr) => {
+            execFile(gif2webp, ['-mixed', '-m', 6, '-q', 100, '-mt', '-v', `${path}.gif`, '-o', `${path}.webp`],
+                    (convErr) => {
                     if (convErr) console.error(convErr)
                     console.log('GIF Image converted!')
                     fs.readFile(`${path}.webp`, (readErr, data) => {
@@ -72,10 +70,10 @@ function compress(req, res, input) {
                         fs.unlink(`${path}.webp`, function () { })
 
                         res.end()
-                    })
-                })
-
-        })
+						})
+					}
+				)
+		})
 
     }else {
 
