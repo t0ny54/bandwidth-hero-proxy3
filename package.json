@@ -16,7 +16,7 @@
     "cache-manager": "5.7.1",
     "cache-manager-fs-binary": "1.0.4",
     "express": "4.19.2",
-    "fluent-ffmpeg": "2.1.2",
+    "fluent-ffmpeg": "2.1.3",
     "gif2webp-bin": "3.0.3",
     "is-animated": "2.0.2",
     "lodash": "4.17.21",
